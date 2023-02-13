@@ -8,4 +8,5 @@ def insert_school(mongo_collection, **kwargs):
     coll = {}
     for key, value in kwargs.items():
         coll[key] = value
-    mongo_collection.insert_one(coll)
+    result = mongo_collection.insert_one(coll)
+    return result.inserted_id
